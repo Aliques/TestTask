@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Dto\Doctor\" />
+    <Folder Include="Dto\Patient\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HospitalTestTask.Core.Application\HospitalTestTask.Core.Application.csproj" />
+    <ProjectReference Include="..\HospitalTestTask.Core.DTO\HospitalTestTask.Core.DTO.csproj" />
+    <ProjectReference Include="..\HospitalTestTask.Domain\HospitalTestTask.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
