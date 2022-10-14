@@ -30,6 +30,7 @@ namespace HospitalTestTask.Infrastructure.Repositories
                 CancellationToken ct)
         {
             _context.Entry(entity).CurrentValues.SetValues(entity);
+            _context.Entry(entity).State = EntityState.Modified;
             return await _context.SaveChangesAsync(ct) >= 1;
         }
 
@@ -39,10 +40,25 @@ namespace HospitalTestTask.Infrastructure.Repositories
             return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<List<TEntity>> GetAllPaginated(PagedRequest request, 
+        public async Task<List<TEntity>> GetAllPaginated(PagedRequest request, bool loadDep = false,
             CancellationToken ct = default)
         {
-            var set = _context.Set<TEntity>().AsNoTracking();
+            var set = _context.Set<TEntity>()
+                .AsNoTracking();
+
+            if (loadDep)
+            {
+                var navigations = _context.Model.FindEntityType(typeof(TEntity))
+                    .GetDerivedTypesInclusive()
+                    .SelectMany(t => t.GetNavigations())
+                    .Distinct();
+
+                foreach (var property in navigations)
+                {
+                    set = set.Include(property.Name);
+                }
+            }
+
             var source = await set.ToListAsync(ct);
             return source.OrderBy(request);
         }

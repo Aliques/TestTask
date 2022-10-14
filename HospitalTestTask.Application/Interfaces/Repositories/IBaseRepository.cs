@@ -13,8 +13,10 @@ namespace HospitalTestTask.Application.Interfaces.Repositories
         Task<TEntity?> GetByIdAsync(TId id,
             CancellationToken ct);
 
-        Task<List<TEntity>> GetAllPaginated(PagedRequest request,
+        Task<List<TEntity>> GetAllPaginated(PagedRequest request, bool loadDep = false,
             CancellationToken ct = default);
+
+        Task<bool> DeleteAsync(TId id, CancellationToken ct = default);
 
     }
 }

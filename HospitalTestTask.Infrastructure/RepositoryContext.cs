@@ -52,7 +52,7 @@ namespace HospitalTestTask.Infrastructure
             modelBuilder.Entity<Office>().HasData(DataBaseSeeder.Offices);
             modelBuilder.Entity<Specialization>().HasData(DataBaseSeeder.Specializations);
             modelBuilder.Entity<DistrictPart>().HasData(DataBaseSeeder.DistrictParts);
-
+            modelBuilder.Entity<Doctor>().HasData(DataBaseSeeder.Doctors);
         }
     }
 }

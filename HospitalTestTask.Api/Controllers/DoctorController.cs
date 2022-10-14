@@ -19,9 +19,33 @@ namespace HospitalTestTask.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> GetUsers([FromQuery]DoctorRequest doctorRequest)
+        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> GetDoctors([FromQuery] DoctorRequest doctorRequest)
         {
             return Ok(await _doctorService.GetAllPaginated(doctorRequest));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> GetDoctors(long id)
+        {
+            return Ok(await _doctorService.GetByIdAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> CreateDoctor(DoctorCreationDto doctor)
+        {
+            return Ok(await _doctorService.AddAsync(doctor));
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> UpdateDoctor(DoctorUpdateDto doctor)
+        {
+            return Ok(await _doctorService.UpdateAsync(doctor));
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> DeleteDoctor(long id)
+        {
+            return Ok(await _doctorService.DeleteAsync(id));
         }
     }
 }

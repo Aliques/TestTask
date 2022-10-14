@@ -35,13 +35,13 @@ namespace HospitalTestTask.Infrastructure.Services
         {
             return await ToResultAsync(async () =>
             {
-                var doctors = await _repository.GetAllPaginated(request, ct);
+                var doctors = await _repository.GetAllPaginated(request, true, ct);
                 var doctorsDto = _mapper.Map<List<DoctorDto>>(doctors);
                 return doctorsDto.ToPaginatedList(request);
             });
         }
 
-        public async Task<IResult<DoctorUpdateDto>> GetByIdAsync(long id, CancellationToken ct)
+        public async Task<IResult<DoctorUpdateDto>> GetByIdAsync(long id, CancellationToken ct = default)
         {
             return await ToResultAsync(async () =>
             {
@@ -51,7 +51,7 @@ namespace HospitalTestTask.Infrastructure.Services
             });
         }
 
-        public async Task<IResult> UpdateAsync(DoctorUpdateDto doctor, CancellationToken ct)
+        public async Task<IResult<DoctorUpdateDto>> UpdateAsync(DoctorUpdateDto doctor, CancellationToken ct = default )
         {
             return await ToResultAsync(async () =>
             {
@@ -59,6 +59,15 @@ namespace HospitalTestTask.Infrastructure.Services
                 var updatedDoctor = await _repository.UpdateAsync(editableDoctor, ct);
                 var doctorDto = _mapper.Map<DoctorUpdateDto>(doctor);
                 return doctorDto;
+            });
+        }
+
+        public async Task<IResult<bool>> DeleteAsync(long id, CancellationToken ct = default)
+        {
+            return await ToResultAsync(async () =>
+            {
+                var deleted = await _repository.DeleteAsync(id, ct);
+                return deleted;
             });
         }
     }
