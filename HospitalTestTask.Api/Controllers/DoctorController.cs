@@ -25,7 +25,7 @@ namespace HospitalTestTask.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> GetDoctors(long id)
+        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> GetDoctor(long id)
         {
             return Ok(await _doctorService.GetByIdAsync(id));
         }
@@ -43,7 +43,7 @@ namespace HospitalTestTask.Api.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<IPaginatedResult<DoctorDto>>> DeleteDoctor(long id)
+        public async Task<ActionResult<bool>> DeleteDoctor(long id)
         {
             return Ok(await _doctorService.DeleteAsync(id));
         }
