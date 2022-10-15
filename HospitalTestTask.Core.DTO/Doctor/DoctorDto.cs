@@ -7,7 +7,6 @@ namespace HospitalTestTask.Core.DTO.Doctor
 {
     public class DoctorDto
     {
-        public long Id { get; set; }
         public string FullName { get; set; }
         public OfficeDto Office { get; set; }
         public SpecializationDto Specialization { get; set; }

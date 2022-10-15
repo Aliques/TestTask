@@ -1,10 +1,10 @@
 ﻿using HospitalTestTask.Core.Application.Enums;
-using HospitalTestTask.Domain.Entities;
 
-namespace HospitalTestTask.Application.Models
+namespace HospitalTestTask.Core.DTO.Patient
 {
-    public class Patient : Entity<Guid>
+    public class PatientUpdateDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Patronymic { get; set; }
@@ -12,6 +12,5 @@ namespace HospitalTestTask.Application.Models
         public DateTime? BirthDate { get; set; }
         public Gender? Gender { get; set; }
         public long DistrictPartId { get; set; }
-        public virtual DistrictPart DistrictPart { get; set; }
     }
 }

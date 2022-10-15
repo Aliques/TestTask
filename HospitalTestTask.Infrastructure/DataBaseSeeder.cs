@@ -93,5 +93,97 @@ namespace HospitalTestTask.Infrastructure
                 SpecializationId = 3
             },
         };
+
+        public static Patient[] Patients = new[]
+        {
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 3,
+                Name = "Patient_FirstName_1",
+                Surname = "Patient_Surname_1",
+                Patronymic = "Patient_Patronymic_1",
+                Address = "Address_1_1",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Male
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 1,
+                Name = "Patient_FirstName_2",
+                Surname = "Patient_Surname_2",
+                Patronymic = "Patient_Patronymic_2",
+                Address = "Address_21_5",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Female
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 3,
+                Name = "Patient_FirstName_3",
+                Surname = "Patient_Surname_3",
+                Patronymic = null,
+                Address = "Address_12_22",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Male
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 2,
+                Name = "Patient_FirstName_4",
+                Surname = "Patient_Surname_4",
+                Patronymic = "Patient_Patronymic_4",
+                Address = "Address_224_4",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Male
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 3,
+                Name = "Patient_FirstName_5",
+                Surname = "Patient_Surname_5",
+                Patronymic = "Patient_Patronymic_5",
+                Address = "Address_5_44",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Male
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 2,
+                Name = "Patient_FirstName_6",
+                Surname = "Patient_Surname_6",
+                Patronymic = "Patient_Patronymic_6",
+                Address = "Address_7_4",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Female
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 1,
+                Name = "Patient_FirstName_7",
+                Surname = "Patient_Surname_7",
+                Patronymic = "Patient_Patronymic_7",
+                Address = "Address_1_1",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Female
+            },
+            new Patient
+            {
+                Id = Guid.NewGuid(),
+                DistrictPartId = 4,
+                Name = "Patient_FirstName_8",
+                Surname = "Patient_Surname_8",
+                Patronymic = "Patient_Patronymic_8",
+                Address = "Address_22_41",
+                BirthDate = DateTime.Now,
+                Gender = Core.Application.Enums.Gender.Male
+            },
+        };
     }
 }

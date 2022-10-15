@@ -1,6 +1,5 @@
 ﻿
 using HospitalTestTask.Domain.Entities;
-using System.Security.Cryptography;
 
 namespace HospitalTestTask.Application.Models
 {

@@ -3,7 +3,7 @@ using HospitalTestTask.Application.Interfaces.Services;
 using HospitalTestTask.Infrastructure;
 using HospitalTestTask.Infrastructure.Profiles;
 using HospitalTestTask.Infrastructure.Repositories;
-using HospitalTestTask.Infrastructure.Services;
+using HospitalTestTask.Infrastructure.Services; 
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -23,6 +23,8 @@ namespace HospitalTestTask.Api.Extensions
             services.AddAutoMapper(Assembly.GetAssembly(typeof(DoctorProfiles)));
             services.AddTransient<IDoctorRepository, DoctorRepository>();
             services.AddTransient<IDoctorService, DoctorService>();
+            services.AddTransient<IPatientRepository, PatientRepository>();
+            services.AddTransient<IPatientService, PatientService>();
         }
     }
 }

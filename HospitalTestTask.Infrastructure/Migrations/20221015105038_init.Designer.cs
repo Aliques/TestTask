@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalTestTask.Infrastructure.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20221014184840_Update-1-added-dataseeder")]
-    partial class Update1addeddataseeder
+    [Migration("20221015105038_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,61 @@ namespace HospitalTestTask.Infrastructure.Migrations
                     b.HasIndex("SpecializationId");
 
                     b.ToTable("Doctors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            DistrictPartId = 3L,
+                            FullName = "Doctor_FullName_1",
+                            OfficeId = 5L,
+                            SpecializationId = 1L
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            FullName = "Doctor_FullName_2",
+                            OfficeId = 2L,
+                            SpecializationId = 2L
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            FullName = "Doctor_FullName_3",
+                            OfficeId = 3L,
+                            SpecializationId = 2L
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            DistrictPartId = 1L,
+                            FullName = "Doctor_FullName_4",
+                            OfficeId = 1L,
+                            SpecializationId = 1L
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            DistrictPartId = 5L,
+                            FullName = "Doctor_FullName_5",
+                            OfficeId = 4L,
+                            SpecializationId = 1L
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            DistrictPartId = 2L,
+                            FullName = "Doctor_FullName_6",
+                            OfficeId = 3L,
+                            SpecializationId = 1L
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            FullName = "Doctor_FullName_7",
+                            OfficeId = 1L,
+                            SpecializationId = 3L
+                        });
                 });
 
             modelBuilder.Entity("HospitalTestTask.Application.Models.Office", b =>
@@ -176,6 +231,95 @@ namespace HospitalTestTask.Infrastructure.Migrations
                     b.HasIndex("DistrictPartId");
 
                     b.ToTable("Patients");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("093860d8-5413-4e15-bfad-7375fcbdc664"),
+                            Address = "Address_1_1",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 902, DateTimeKind.Local).AddTicks(6954),
+                            DistrictPartId = 3L,
+                            Gender = 0,
+                            Name = "Patient_FirstName_1",
+                            Patronymic = "Patient_Patronymic_1",
+                            Surname = "Patient_Surname_1"
+                        },
+                        new
+                        {
+                            Id = new Guid("cdfd7e0b-39fb-41bc-8d1c-614b0c52303e"),
+                            Address = "Address_21_5",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1050),
+                            DistrictPartId = 1L,
+                            Gender = 1,
+                            Name = "Patient_FirstName_2",
+                            Patronymic = "Patient_Patronymic_2",
+                            Surname = "Patient_Surname_2"
+                        },
+                        new
+                        {
+                            Id = new Guid("19ac7d06-b910-4e5d-8e6b-fa259cb2cffc"),
+                            Address = "Address_12_22",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1061),
+                            DistrictPartId = 3L,
+                            Gender = 0,
+                            Name = "Patient_FirstName_3",
+                            Surname = "Patient_Surname_3"
+                        },
+                        new
+                        {
+                            Id = new Guid("c042d2cb-43d4-499d-bcc4-3d7036035dde"),
+                            Address = "Address_224_4",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1063),
+                            DistrictPartId = 2L,
+                            Gender = 0,
+                            Name = "Patient_FirstName_4",
+                            Patronymic = "Patient_Patronymic_4",
+                            Surname = "Patient_Surname_4"
+                        },
+                        new
+                        {
+                            Id = new Guid("aef2ac54-d4fb-43c6-b397-065f63ecbdc3"),
+                            Address = "Address_5_44",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1065),
+                            DistrictPartId = 3L,
+                            Gender = 0,
+                            Name = "Patient_FirstName_5",
+                            Patronymic = "Patient_Patronymic_5",
+                            Surname = "Patient_Surname_5"
+                        },
+                        new
+                        {
+                            Id = new Guid("6a268677-aaa7-4527-8a55-3db666c9464a"),
+                            Address = "Address_7_4",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1067),
+                            DistrictPartId = 2L,
+                            Gender = 1,
+                            Name = "Patient_FirstName_6",
+                            Patronymic = "Patient_Patronymic_6",
+                            Surname = "Patient_Surname_6"
+                        },
+                        new
+                        {
+                            Id = new Guid("833fe5f0-60eb-4fbb-9513-feb9af5e3d84"),
+                            Address = "Address_1_1",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1076),
+                            DistrictPartId = 1L,
+                            Gender = 1,
+                            Name = "Patient_FirstName_7",
+                            Patronymic = "Patient_Patronymic_7",
+                            Surname = "Patient_Surname_7"
+                        },
+                        new
+                        {
+                            Id = new Guid("da1e200f-eb7f-427d-b186-36e4f8219818"),
+                            Address = "Address_22_41",
+                            BirthDate = new DateTime(2022, 10, 15, 13, 50, 37, 904, DateTimeKind.Local).AddTicks(1077),
+                            DistrictPartId = 4L,
+                            Gender = 0,
+                            Name = "Patient_FirstName_8",
+                            Patronymic = "Patient_Patronymic_8",
+                            Surname = "Patient_Surname_8"
+                        });
                 });
 
             modelBuilder.Entity("HospitalTestTask.Application.Models.Specialization", b =>

@@ -12,8 +12,8 @@ namespace HospitalTestTask.Infrastructure.Services
 {
     public class DoctorService : BaseService, IDoctorService
     {
-        private IDoctorRepository _repository;
-        private IMapper _mapper;
+        private readonly IDoctorRepository _repository;
+        private readonly IMapper _mapper;
 
         public DoctorService(IDoctorRepository repository, IMapper mapper)
         {
@@ -25,7 +25,8 @@ namespace HospitalTestTask.Infrastructure.Services
             return await ToResultAsync(async () =>
             {
                 var entity = _mapper.Map<Doctor>(doctor);
-                var createdDoctor = await _repository.AddAsync(entity, ct);
+                var createdEntity = await _repository.AddAsync(entity, ct);
+                var createdDoctor = await _repository.GetByIdWithAttachments(createdEntity.Id, ct);
                 var outputEntity = _mapper.Map<DoctorDto>(createdDoctor);
                 return outputEntity;
             });
@@ -56,7 +57,7 @@ namespace HospitalTestTask.Infrastructure.Services
             return await ToResultAsync(async () =>
             {
                 var editableDoctor = _mapper.Map<Doctor>(doctor);
-                var updatedDoctor = await _repository.UpdateAsync(editableDoctor, ct);
+                await _repository.UpdateAsync(editableDoctor, ct);
                 var doctorDto = _mapper.Map<DoctorUpdateDto>(doctor);
                 return doctorDto;
             });

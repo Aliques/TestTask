@@ -1,5 +1,4 @@
-﻿
-using HospitalTestTask.Domain.Entities;
+﻿using HospitalTestTask.Domain.Entities;
 
 namespace HospitalTestTask.Application.Models
 {
@@ -10,10 +9,10 @@ namespace HospitalTestTask.Application.Models
         /// </summary>
         public string FullName { get; set; }
         public long OfficeId { get; set; }
-        public Office Office { get; set; }
+        public virtual Office Office { get; set; }
         public long SpecializationId { get; set; }
-        public Specialization Specialization { get; set; }
+        public virtual Specialization Specialization { get; set; }
         public long? DistrictPartId { get; set; }
-        public DistrictPart DistrictPart { get; set; }
+        public virtual DistrictPart DistrictPart { get; set; }
     }
 }

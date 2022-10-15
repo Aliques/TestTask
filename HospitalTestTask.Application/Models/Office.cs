@@ -1,5 +1,6 @@
 ﻿
 using HospitalTestTask.Domain.Entities;
+using System.Numerics;
 
 namespace HospitalTestTask.Application.Models
 {
